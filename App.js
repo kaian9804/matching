@@ -14,7 +14,7 @@ import Card from './Card'
 class App extends Component {
   state = {
     cardSymbols: [
-      '☺️', '🤩', '😎', '💩', '❤️', '⭐️', '🤘', '👍'
+      '😬', '🤩', '😎', '💕', '❤️', '⭐️', '🤪', '👍'
     ],
     cardSymbolsInRand: [],
     isOpen: [],
@@ -134,7 +134,7 @@ class App extends Component {
         <SafeAreaView style={ styles.container }>
           <View style={ styles.header }>
             <Text style={styles.heading}>
-              Matching Game
+              Emoji 😎{'\n'}Matching Game
             </Text>
           </View>
           <View style={ styles.main }>
@@ -151,12 +151,21 @@ class App extends Component {
                 : `You have tried ${this.state.steps} time(s).`
               }
             </Text>
+
+              {/* {this.state.isEnded ?
+                <TouchableOpacity onPress={ this.resetGame } style={ styles.tryAgainButton }>
+                  <Text style={ styles.tryAgainButtonText }>Try Again</Text>
+                </TouchableOpacity>
+              : null} */}
+
+            <Text style={styles.creator}>
+              {'\n'}
+              Ka Ian @ 2024 - React Native
+            </Text>
+
             
-            {this.state.isEnded ?
-              <TouchableOpacity onPress={ this.resetGame } style={ styles.tryAgainButton }>
-                <Text style={ styles.tryAgainButtonText }>Try Again</Text>
-              </TouchableOpacity>
-            : null }
+
+            
 
           </View>
         </SafeAreaView>
@@ -182,13 +191,14 @@ const styles = StyleSheet.create({
   },
   main: {
     flex: 3,
-    backgroundColor: 'yellow',
+    backgroundColor: '#42cfcf',
   },
   footer: {
     flex: 1,
     backgroundColor: '#eee',
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'column'
   },
   footerText: {
     fontSize: 20,
@@ -204,7 +214,7 @@ const styles = StyleSheet.create({
     margin: (Dimensions.get('window').width - (48 * 4)) / (4 * 2) - (4 * 2),
   },
   button: {
-    backgroundColor: '#ccc',
+    backgroundColor: '#eee',
     borderRadius: 8,
     width: 48,
     height: 48,
@@ -216,14 +226,19 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   tryAgainButton: {
-    backgroundColor: 'yellow',
+    backgroundColor: '#42cfcf',
     padding: 8,
     borderRadius: 8,
     marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   tryAgainButtonText: {
     fontSize: 18,
   },
+  creator: {
+    fontSize: 10,
+  }
 })
 
 export default App 
